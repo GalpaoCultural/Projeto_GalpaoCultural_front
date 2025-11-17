@@ -1,0 +1,50 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="logo-area">
+      <img src="/Logo_galpao.png" alt="Logo Galpão" class="logo-image-small">
+      <h2>Acesso Restrito</h2>
+    </div>
+
+    <!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"> -->
+      
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <!-- <input 
+            id="email" 
+          type="email" 
+          formControlName="email" 
+          placeholder="admin@galpao.com"
+          [ngClass]="{'is-invalid': f['email'].invalid && f['email'].touched}"
+        > -->
+        <!-- <div *ngIf="f['email'].invalid && f['email'].touched" class="invalid-feedback">
+          <div *ngIf="f['email'].errors?.['required']">O e-mail é obrigatório.</div>
+          <div *ngIf="f['email'].errors?.['email']">O e-mail deve ser válido.</div>
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="senha">Senha</label>
+        <!-- <input 
+          id="senha" 
+          type="password" 
+          formControlName="senha" 
+          placeholder="••••••••"
+          [ngClass]="{'is-invalid': f['senha'].invalid && f['senha'].touched}"
+        > -->
+        <!-- <div *ngIf="f['senha'].invalid && f['senha'].touched" class="invalid-feedback">
+          <div *ngIf="f['senha'].errors?.['required']">A senha é obrigatória.</div>
+          <div *ngIf="f['senha'].errors?.['minlength']">Mínimo 6 caracteres.</div>
+        </div> -->
+      </div>
+      
+      <button type="submit" [disabled]="!loginForm.valid" class="login-button">
+        Entrar como Administrador
+      </button>
+      
+      <div class="forgot-password">
+        <a routerLink="/" class="back-link">Voltar para a tela principal</a>
+      </div>
+
+    <!-- </form> -->
+  </div>
+</div>

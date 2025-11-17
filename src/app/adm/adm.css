@@ -1,0 +1,164 @@
+/* Container Principal da Tela de Login - Replicando o fundo da aplicação principal */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    
+    background-image: url('/wall1.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1; 
+    user-select: none;
+}
+
+/* Overlay escuro */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 2;
+}
+
+/* Caixa de Login */
+.login-box {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative; 
+    z-index: 3;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Área do Logo e Título */
+.logo-area {
+    margin-bottom: 30px;
+}
+
+.logo-image-small {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    object-fit: contain;
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+h2 {
+    font-size: 1.6em;
+    color: #34495e;
+    margin: 0;
+}
+
+/* Elementos do Formulário */
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95em;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #2995ee;
+    box-shadow: 0 0 0 3px rgba(41, 149, 238, 0.2);
+    outline: none;
+}
+
+/* Botão de Submissão (Cor principal: Azul do Empréstimo) */
+.login-button {
+    width: 100%;
+    padding: 16px;
+    background-color: #2995ee;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #3da3f6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.login-button:disabled {
+    background-color: #a0c3e7;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Mensagens e Links */
+.forgot-password {
+    margin-top: 25px;
+}
+
+.back-link {
+    color: #6c757d;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #2995ee;
+}
+
+/* Feedback de Validação */
+.is-invalid {
+    border-color: #f02828 !important; /* Cor de erro (Devolução) */
+}
+
+.invalid-feedback {
+    color: #f02828;
+    font-size: 0.85em;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .login-box {
+        margin: 20px;
+        padding: 30px 25px;
+    }
+    .login-container {
+        background-attachment: scroll;
+    }
+}

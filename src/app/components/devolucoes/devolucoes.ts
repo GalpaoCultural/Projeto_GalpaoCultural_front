@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EmprestimoService } from '../../service/emprestimo-service';
 import { VisualizarEmpDTO } from '../../model/VisualizarEmpDTO';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-devolucoes',
@@ -19,8 +20,15 @@ export class Devolucoes {
   erroMsg: string | null = null;
   buscaRealizada = false;
 
-  constructor(private emprestimoService: EmprestimoService, private cdr: ChangeDetectorRef, private zone: NgZone) { }
+  constructor(private emprestimoService: EmprestimoService, private cdr: ChangeDetectorRef, private zone: NgZone, private snackBar: MatSnackBar) { }
 
+  mostrarMensagem() {
+    this.snackBar.open('Livro devolvido com sucesso ✅', 'Fechar', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+    });
+  }
 
   //MOSTRAR TODOS OS EMPRESTIMOS POR CELULAR
   async verEmprestimos() {
@@ -28,27 +36,26 @@ export class Devolucoes {
       this.erroMsg = 'Digite um número de celular válido.';
       this.emprestimos = [];
       this.buscaRealizada = false;
-      this.cdr.detectChanges();
       return;
     }
     this.erroMsg = null;
     this.isLoading = true;
     this.buscaRealizada = true;
-    this.cdr.detectChanges();
-
 
     const dados = await this.emprestimoService.verEmprestimos(this.celular);
 
     this.zone.run(() => {
       this.emprestimos = dados;
       this.isLoading = false;
+      this.cdr.detectChanges();
     });
   }
 
   async devolverLivro(id: number) {
     await this.emprestimoService.devolverLivro(id);
-    alert('Livro devolvido com sucesso!');
     await this.verEmprestimos();
+
+    this.mostrarMensagem();
   }
 }
 

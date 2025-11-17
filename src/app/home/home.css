@@ -16,6 +16,7 @@
   background-repeat: no-repeat;
   background-attachment: scroll;
   position: relative;
+  user-select: none;
 }
 
 /* Overlay escuro para melhorar a legibilidade do texto */
@@ -203,7 +204,7 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .container {
-    background-size: contain;
+    background-size: cover;
     background-position: center top;
     background-attachment: scroll;
   }

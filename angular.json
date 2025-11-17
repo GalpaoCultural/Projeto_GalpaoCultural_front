@@ -22,9 +22,8 @@
               }
             ],
             "styles": [
-              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
-              "src/custom-theme.scss",
-              "src/styles.css"
+              "src/styles.css",
+              "src/custom-theme.scss"
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
