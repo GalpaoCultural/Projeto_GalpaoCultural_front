@@ -1,0 +1,116 @@
+<div class="container">
+    <div class="admin-header">
+        <button class="back-button" routerLink="/">←</button>
+        <div class="header-content">
+            <h1>Painel Administrativo</h1>
+            <p class="subtitle">Gerencie todos os empréstimos da biblioteca</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn-export" (click)="exportarDados()">📥 Exportar Dados</button>
+            <button class="btn-refresh" (click)="carregarEmprestimos()" (click)="carregarEmprestimosAtrasados()">🔄
+                Atualizar</button>
+            <button class="btn-logout" (click)="logout()">🚪 Sair</button>
+        </div>
+    </div>
+
+    <div class="stats-section">
+        <div class="stat-card" (click)="exibirTabela()">
+            <div class="stat-number">{{ emprestimos.length }}</div>
+            <div class="stat-label">Total de Empréstimos Pendentes</div>
+        </div>
+        <div class="stat-card" (click)="exibirTabelaAtrasado()">
+            <div class="stat-number">{{ emprestimosAtrasados.length }}</div>
+            <div class="stat-label">Total de Empréstimos Atrasados</div>
+        </div>
+    </div>
+
+    <div class="emprestimos-section" *ngIf="mostrarTabelaEmprestimos">
+        <div class="section-header">
+            <h2>Lista de Empréstimos Pendentes</h2>
+            <span class="count-badge">{{ emprestimos.length }} empréstimo(s)</span>
+        </div>
+
+        @if (emprestimos && emprestimos.length == 0) {
+        <div *ngIf="emprestimos.length === 0" class="empty-state">
+            <div class="empty-icon">📚</div>
+            <p>Nenhum empréstimo encontrado</p>
+            <p class="empty-subtitle">Use os filtros para buscar ou cadastre um novo empréstimo</p>
+        </div>
+        }
+        @if (emprestimos && emprestimos.length > 0) {
+        <div class="tabela-emprestimos-section">
+
+            <table class="tabela-emprestimos">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Livro</th>
+                        <th>Autor</th>
+                        <th>Usuário</th>
+                        <th>WhatsApp</th>
+                        <th>Retirada</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let e of emprestimos">
+                        <td>{{ e.id }}</td>
+                        <td>{{ e.livro }}</td>
+                        <td>{{ e.autor }}</td>
+                        <td>{{ e.nome }}</td>
+                        <td>
+                            <a [href]="'https://wa.me/' + e.celular" target="_blank">{{ e.celular }}</a>
+                        </td>
+                        <td>{{ e.retirada }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        }
+    </div>
+    
+    <div class="emprestimos-section" *ngIf="mostrarTabelaEmprestimosAtrasado">
+        <div class="section-header">
+            <h2>Lista de Empréstimos Atrasados</h2>
+            <span class="count-badge">{{ emprestimosAtrasados.length }} empréstimo(s)</span>
+        </div>
+
+        @if (emprestimosAtrasados && emprestimosAtrasados.length == 0) {
+        <div *ngIf="emprestimosAtrasados.length === 0" class="empty-state">
+            <div class="empty-icon">📚</div>
+            <p>Nenhum empréstimo encontrado</p>
+            <p class="empty-subtitle">Use os filtros para buscar ou cadastre um novo empréstimo</p>
+        </div>
+        }
+        @if (emprestimosAtrasados && emprestimosAtrasados.length > 0) {
+        <div class="tabela-emprestimos-section">
+
+            <table class="tabela-emprestimos">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Livro</th>
+                        <th>Autor</th>
+                        <th>Usuário</th>
+                        <th>WhatsApp</th>
+                        <th>Retirada</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let e of emprestimosAtrasados">
+                        <td>{{ e.id }}</td>
+                        <td>{{ e.livro }}</td>
+                        <td>{{ e.autor }}</td>
+                        <td>{{ e.nome }}</td>
+                        <td>
+                            <a [href]="'https://wa.me/' + e.celular" target="_blank">{{ e.celular }}</a>
+                        </td>
+                        <td>{{ e.retirada }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="login-card">
+    <div class="header">
+      <button class="back-button" routerLink="/">←</button>
+      <div class="header-content">
+        <h1>Cadastrar</h1>
+        <p class="subtitle">Faça o cadastro para acessar o painel administrativo</p>
+      </div>
+    </div>
+
+    <form (ngSubmit)="fazerCadastro()" class="login-form">
+      <div class="erro-mensagem" *ngIf="erro">
+        <span class="erro-icon">⚠️</span>
+        {{ erro }}
+      </div>
+
+      <div class="field-group">
+        <label for="nome">Nome</label>
+        <input 
+          type="nome" 
+          id="nome"
+          name="nome"
+          placeholder="Digite seu Nome" 
+          [(ngModel)]="user.nome"
+          [disabled]="carregando"
+          required
+          autocomplete="nome">
+      </div>
+
+      <div class="field-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email"
+          name="email"
+          placeholder="admin@galpao.com" 
+          [(ngModel)]="user.email"
+          [disabled]="carregando"
+          required
+          autocomplete="email">
+      </div>
+
+      <div class="field-group">
+        <label for="senha">Senha</label>
+        <div class="password-input-wrapper">
+          <input 
+            [type]="mostrarSenha ? 'text' : 'password'" 
+            id="senha"
+            name="senha"
+            placeholder="Digite sua senha" 
+            [(ngModel)]="user.password"
+            [disabled]="carregando"
+            required
+            autocomplete="current-password">
+          <button 
+            type="button" 
+            class="toggle-password"
+            (click)="toggleMostrarSenha()"
+            [disabled]="carregando">
+            {{ mostrarSenha ? '👁️' : '👁️‍🗨️' }}
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" class="login-button" [disabled]="carregando">
+        <span *ngIf="!carregando">Cadastrar</span>
+        <span *ngIf="carregando">⏳ Verificando...</span>
+      </button>
+    </form>
+</div>
+

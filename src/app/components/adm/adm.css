@@ -1,0 +1,747 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+}
+
+/* Header */
+.admin-header {
+    background: white;
+    border-radius: 15px;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #667eea;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background: #f0f0f0;
+    transform: translateX(-3px);
+}
+
+.header-content {
+    flex: 1;
+    margin-left: 50px;
+}
+
+.header-content h1 {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-export,
+.btn-refresh,
+.btn-logout {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-export {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-export:hover {
+    background: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.btn-refresh {
+    background: #3498db;
+    color: white;
+}
+
+.btn-refresh:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.btn-logout {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-logout:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+/* Estatísticas */
+.stats-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Filtros */
+.filters-section {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-filters {
+    width: 100%;
+    padding: 15px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: left;
+    transition: all 0.3s;
+}
+
+.toggle-filters:hover {
+    background: #e9ecef;
+}
+
+.filters-panel {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+.filter-group input {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.filter-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn-clear-filters {
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-clear-filters:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Lista de Empréstimos */
+.emprestimos-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.section-header h2 {
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+.count-badge {
+    background: #667eea;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #7f8c8d;
+}
+
+.empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.empty-subtitle {
+    font-size: 14px;
+    color: #bdc3c7;
+}
+
+/* Cards de Empréstimo */
+.emprestimos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.emprestimo-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s;
+}
+
+.emprestimo-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.card-title-group {
+    flex: 1;
+}
+
+.livro-titulo {
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-id {
+    color: #95a5a6;
+    font-size: 12px;
+}
+
+.card-date {
+    color: #7f8c8d;
+    font-size: 14px;
+    background: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.card-body {
+    margin-bottom: 15px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.info-label {
+    font-weight: 600;
+    color: #7f8c8d;
+    font-size: 14px;
+    min-width: 100px;
+}
+
+.info-value {
+    color: #2c3e50;
+    font-size: 15px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btn-devolver,
+.btn-deletar {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-devolver {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-devolver:hover {
+    background: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+}
+
+.btn-deletar {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-deletar:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-content {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .header-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .stats-section {
+        flex-direction: column;
+    }
+
+    .filter-row {
+        grid-template-columns: 1fr;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card-actions {
+        flex-direction: column;
+    }
+}
+
+/* ============================
+   MOBILE EXTRA (ATÉ 480px)
+   ============================ */
+@media (max-width: 480px) {
+
+    .container {
+        padding: 10px;
+    }
+
+    /* HEADER */
+    .admin-header {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .back-button {
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .header-content h1 {
+        font-size: 22px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+    }
+
+    .header-actions {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-actions button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* ESTATÍSTICAS */
+    .stats-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .stat-number {
+        font-size: 36px;
+    }
+
+    /* FILTROS */
+    .filters-section {
+        padding: 15px;
+    }
+
+    .toggle-filters {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .filter-row {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-group input {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .btn-clear-filters {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* LISTA DE EMPRÉSTIMOS */
+    .emprestimos-section {
+        padding: 15px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .section-header h2 {
+        font-size: 20px;
+    }
+
+    .count-badge {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    /* CARDS */
+    .emprestimo-card {
+        padding: 15px;
+    }
+
+    .livro-titulo {
+        font-size: 18px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+    }
+
+    .info-label {
+        min-width: auto;
+        font-size: 13px;
+    }
+
+    .info-value {
+        font-size: 14px;
+    }
+
+    .card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card-actions button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+}
+
+/* Container da tabela */
+.tabela-emprestimos-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 25px;
+}
+
+/* Título */
+.tabela-title {
+    color: #2c3e50;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Tabela */
+.tabela-emprestimos {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+/* Cabeçalho */
+.tabela-emprestimos thead {
+    background: #667eea;
+    color: white;
+}
+
+.tabela-emprestimos th {
+    padding: 14px 12px;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Linhas */
+.tabela-emprestimos td {
+    padding: 14px 12px;
+    font-size: 15px;
+    color: #2c3e50;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Hover */
+.tabela-emprestimos tbody tr:hover {
+    background: #eef1ff;
+    transition: 0.2s;
+}
+
+/* Última linha sem borda */
+.tabela-emprestimos tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --------------------------
+   Responsividade até 768px
+--------------------------- */
+@media (max-width: 768px) {
+
+    .tabela-emprestimos-section {
+        padding: 20px;
+    }
+
+    .tabela-emprestimos th,
+    .tabela-emprestimos td {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+/* --------------------------
+   MOBILE (ATÉ 480px)
+--------------------------- */
+@media (max-width: 480px) {
+
+    .tabela-title {
+        font-size: 18px;
+    }
+
+    /* Tabela vira "cards" responsivos */
+    .tabela-emprestimos,
+    .tabela-emprestimos thead,
+    .tabela-emprestimos tbody,
+    .tabela-emprestimos th,
+    .tabela-emprestimos td,
+    .tabela-emprestimos tr {
+        display: block;
+        width: 100%;
+    }
+
+    .tabela-emprestimos tr {
+        background: #f8f9fa;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        padding: 12px;
+        border-left: 4px solid #667eea;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    .tabela-emprestimos td {
+        border-bottom: none;
+        padding: 8px 0;
+    }
+
+    /* Adiciona labels no mobile */
+    .tabela-emprestimos td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #7f8c8d;
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+}
+
+
+/* ============================
+   MOBILE (ATÉ 480px)
+   ============================ */
+@media (max-width: 480px) {
+
+    .tabela-emprestimos-section {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .tabela-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    /* Tabela vira CARD */
+    .tabela-emprestimos,
+    .tabela-emprestimos thead,
+    .tabela-emprestimos tbody,
+    .tabela-emprestimos th,
+    .tabela-emprestimos td,
+    .tabela-emprestimos tr {
+        display: block;
+        width: 100%;
+    }
+
+    /* Some o cabeçalho da tabela */
+    .tabela-emprestimos thead {
+        display: none;
+    }
+
+    /* Cada linha vira um card */
+    .tabela-emprestimos tr {
+        background: #f8f9fa;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        padding: 15px;
+        border-left: 4px solid #667eea;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Ajuste das células dentro dos cards */
+    .tabela-emprestimos td {
+        padding: 8px 0;
+        font-size: 14px;
+        border-bottom: none;
+    }
+
+    /* Label acima do valor */
+    .tabela-emprestimos td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: #7f8c8d;
+        margin-bottom: 3px;
+    }
+}

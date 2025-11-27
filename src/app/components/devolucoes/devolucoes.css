@@ -357,6 +357,106 @@
 }
 
 /* Responsividade */
+/* ==========================================
+   RESPONSIVIDADE PARA CELULARES (≤ 480px)
+   ========================================== */
+@media (max-width: 480px) {
+
+  /* Estrutura geral */
+  .container {
+    padding: 20px 12px;
+    gap: 24px;
+  }
+
+  /* Seção principal */
+  .devolucao-section {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .header h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* Inputs */
+  .field-group input {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  /* Botão */
+  .submit-button {
+    font-size: 16px;
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  /* Resultados */
+  .resultados {
+    padding: 20px;
+  }
+
+  .resultados h3 {
+    font-size: 20px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  /* Tabela mais amigável para celular */
+  .resultados table {
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    border-spacing: 0;
+  }
+
+  /* Células menores */
+  .resultados th,
+  .resultados td {
+    padding: 10px 12px;
+    white-space: nowrap;
+  }
+
+  /* Suaviza hover no mobile (não some ao toque) */
+  .resultados tbody tr:hover {
+    background-color: #f1eef6;
+    transform: none;
+  }
+}
+
+
+/* ==========================================
+   CELULARES MUITO PEQUENOS (≤ 360px)
+   ========================================== */
+@media (max-width: 360px) {
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .field-group input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .resultados table {
+    font-size: 12px;
+  }
+}
+
+
 @media (max-width: 600px) {
   .resultados table,
   .resultados thead,
@@ -391,5 +491,93 @@
     content: attr(data-label);
     font-weight: bold;
     color: #2c3e50;
+  }
+}
+
+
+/* ================================
+   RESPONSIVIDADE PARA COMPUTADOR
+   Telas grandes (≥ 1024px)
+   ================================ */
+@media (min-width: 1024px) {
+
+  /* Aumenta área útil e centraliza melhor */
+  .container {
+    padding-top: 5vh;
+    gap: 40px;
+  }
+
+  /* Devolução Section: fica maior e elegante */
+  .devolucao-section {
+    max-width: 700px;
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  .header h2 {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .field-group input {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+
+  .submit-button {
+    font-size: 18px;
+    padding: 18px;
+  }
+
+  /* Resultados em desktop */
+  .resultados {
+    max-width: 1000px;
+    padding: 40px;
+  }
+
+  .resultados h3 {
+    font-size: 26px;
+  }
+
+  .resultados table {
+    font-size: 18px;
+  }
+
+  .resultados th,
+  .resultados td {
+    padding: 18px 20px;
+  }
+
+  /* Efeito suave de hover nas linhas */
+  .resultados tbody tr:hover {
+    background-color: #f4f2f7;
+    transform: scale(1.01);
+  }
+}
+
+
+/* =======================================
+   SUPER-GRANDES TELAS (≥ 1440px / TV)
+   ======================================= */
+@media (min-width: 1440px) {
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .devolucao-section {
+    max-width: 800px;
+  }
+
+  .resultados {
+    max-width: 1200px;
+  }
+
+  .resultados table {
+    font-size: 20px;
   }
 }

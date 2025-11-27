@@ -3,4 +3,7 @@ export class VisualizarEmpDTO{
     nome!: string;
     livro!: string;
     autor!: string;
+    celular!: string;
+    retirada!: Date;
+
 }
